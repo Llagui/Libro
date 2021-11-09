@@ -1,4 +1,3 @@
-
 /**
  * Una clase que representa objetos libro.
  * Esta clase podria formar parte de un
@@ -20,5 +19,15 @@ public class Libro {
     {
         autor = autorLibro;
         titulo = tituloLibro;
+    }
+    
+    public String getAutor()
+    {
+        return autor;
+    }
+    
+    public String getTitulo()
+    {
+        return titulo;
     }
 }
