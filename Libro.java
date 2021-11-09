@@ -13,6 +13,7 @@ public class Libro {
     private String titulo;
     private int numPaginas;
     private String numeroReferencia;
+    private int vecesPrestado;
 
     /**
      * Fija el autor y el titulo del libro a los dados como parametro
@@ -39,14 +40,19 @@ public class Libro {
     {
         return numPaginas;
     }
-
+    
+    public int getVecesPrestado()
+    {
+        return numPaginas;
+    }
+    
     public String getDetalles()
     {
-        if (numeroReferencia != ""){
-            return "Título: " + titulo +  "/Autor: " + autor + "/Paginas: " + numPaginas + "/Numero de referencia: " + numeroReferencia;
+        if (numeroReferencia.length() != 0){
+            return "Título: " + titulo +  "/Autor: " + autor + "/Paginas: " + numPaginas + "/Numero de referencia: " + numeroReferencia + "/Veces prestado: "+ vecesPrestado;
         }
         else{
-            return "Título: " + titulo +  "/Autor: " + autor + "/Paginas: " + numPaginas + "/Numero de referencia: ZZZ" ;
+            return "Título: " + titulo +  "/Autor: " + autor + "/Paginas: " + numPaginas + "/Numero de referencia: ZZZ" + "/Veces prestado: "+ vecesPrestado;
         }
     }
 
@@ -72,19 +78,27 @@ public class Libro {
 
     public void imprimirDetalles()
     {
-        System.out.println ("Título: " + titulo +  "/Autor: " + autor + "/Paginas: " + numPaginas + "/Numero de referencia: " + numeroReferencia );
+        if (numeroReferencia.length() != 0){
+            System.out.println ("Título: " + titulo +  "/Autor: " + autor + "/Paginas: " + numPaginas + "/Numero de referencia: " + numeroReferencia + "/Veces prestado: "+ vecesPrestado);
+        }
+        else{
+            System.out.println ("Título: " + titulo +  "/Autor: " + autor + "/Paginas: " + numPaginas + "/Numero de referencia: ZZZ"+ "/Veces prestado: "+ vecesPrestado);
+        }
     }
 
     public void setNumeroReferencia(String numRef)
     {
-
         if( numRef.length() >= 3){
             numeroReferencia = numRef;
         }
         else{
             System.out.println("Numero demasiado pequeño");
         }
-
+    }
+    
+    public void prestar()
+    {
+        vecesPrestado = vecesPrestado + 1;
     }
 
 }
