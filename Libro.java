@@ -61,22 +61,23 @@ public class Libro {
 
     public String getDetalles()
     {
+        String numRef = " ZZZ ";
+        String libTxt = " No ";
         if (numeroReferencia.length() != 0){
             if(esLibroDeTexto== true){
-                return textoprimero + numeroReferencia + textosegundo + " Si";
+                numRef = numeroReferencia;
+                libTxt = " Si ";
             }
             else{
-                return textoprimero + numeroReferencia + textosegundo + " No";
+                numRef = numeroReferencia; 
             }
         }   
         else{
             if(esLibroDeTexto== true){
-                return textoprimero +" ZZZ "+ textosegundo + " Si";
-            }
-            else{
-                return textoprimero + "ZZZ "+ textosegundo + " No";
+                libTxt =" Si ";
             }
         }
+        return textoprimero + numRef + textosegundo + libTxt;
     }
 
     public String getNumeroReferencia()
@@ -100,23 +101,23 @@ public class Libro {
     }
 
     public void imprimirDetalles()
-    {
+    {   String numRef = " ZZZ ";
+        String libTxt = " No ";
         if (numeroReferencia.length() != 0){
             if(esLibroDeTexto== true){
-                System.out.println(textoprimero + numeroReferencia + textosegundo +  "Si");
+                numRef = numeroReferencia;
+                libTxt = " Si";
             }
             else{
-                System.out.println(textoprimero + numeroReferencia + textosegundo + " No");
+                numRef = numeroReferencia; 
             }
-        }
+        }   
         else{
             if(esLibroDeTexto== true){
-                System.out.println(textoprimero + " ZZZ "+ textosegundo+ " Si");
-            }
-            else{
-                System.out.println(textoprimero + "ZZZ " + textosegundo + " No");
+                libTxt =" Si";
             }
         }
+        System.out.println(textoprimero + numRef + textosegundo + libTxt);
     }
 
     public void setNumeroReferencia(String numRef)
