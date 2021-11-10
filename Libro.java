@@ -64,18 +64,10 @@ public class Libro {
         String numRef = " ZZZ ";
         String libTxt = " No ";
         if (numeroReferencia.length() != 0){
-            if(esLibroDeTexto== true){
-                numRef = numeroReferencia;
-                libTxt = " Si ";
-            }
-            else{
-                numRef = numeroReferencia; 
-            }
+           numRef = numeroReferencia; 
         }   
-        else{
-            if(esLibroDeTexto== true){
-                libTxt =" Si ";
-            }
+        if(esLibroDeTexto== true){
+            libTxt = " Si";
         }
         return textoprimero + numRef + textosegundo + libTxt;
     }
@@ -104,19 +96,12 @@ public class Libro {
     {   String numRef = " ZZZ ";
         String libTxt = " No ";
         if (numeroReferencia.length() != 0){
-            if(esLibroDeTexto== true){
-                numRef = numeroReferencia;
-                libTxt = " Si";
-            }
-            else{
-                numRef = numeroReferencia; 
-            }
+           numRef = numeroReferencia; 
         }   
-        else{
-            if(esLibroDeTexto== true){
-                libTxt =" Si";
-            }
+        if(esLibroDeTexto== true){
+            libTxt = " Si";
         }
+        
         System.out.println(textoprimero + numRef + textosegundo + libTxt);
     }
 
