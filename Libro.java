@@ -14,16 +14,19 @@ public class Libro {
     private int numPaginas;
     private String numeroReferencia;
     private int vecesPrestado;
+    private boolean esLibroDeTexto;
 
     /**
      * Fija el autor y el titulo del libro a los dados como parametro
      */
-    public Libro(String autorLibro, String tituloLibro, int numeroPaginas)
+    public Libro(String autorLibro, String tituloLibro, int numeroPaginas, boolean libroTexto)
     {
         autor = autorLibro;
         titulo = tituloLibro;
         numPaginas = numeroPaginas;
         numeroReferencia = "";
+        vecesPrestado = 0;
+        esLibroDeTexto = libroTexto;
     }
 
     public String getAutor()
@@ -40,19 +43,34 @@ public class Libro {
     {
         return numPaginas;
     }
-    
+
     public int getVecesPrestado()
     {
-        return numPaginas;
+        return vecesPrestado;
     }
-    
+
+    public boolean getEsLibroDeTexto()
+    {
+        return esLibroDeTexto;
+    }
+
     public String getDetalles()
     {
         if (numeroReferencia.length() != 0){
-            return "Título: " + titulo +  "/Autor: " + autor + "/Paginas: " + numPaginas + "/Numero de referencia: " + numeroReferencia + "/Veces prestado: "+ vecesPrestado;
-        }
+            if(esLibroDeTexto== true){
+                return "Título: " + titulo +  "/Autor: " + autor + "/Paginas: " + numPaginas + "/Numero de referencia: " + numeroReferencia + "/Veces prestado: "+ vecesPrestado + "/Es libro de texto: Si";
+            }
+            else{
+                return "Título: " + titulo +  "/Autor: " + autor + "/Paginas: " + numPaginas + "/Numero de referencia: " + numeroReferencia + "/Veces prestado: "+ vecesPrestado + "/Es libro de texto: No";
+            }
+        }   
         else{
-            return "Título: " + titulo +  "/Autor: " + autor + "/Paginas: " + numPaginas + "/Numero de referencia: ZZZ" + "/Veces prestado: "+ vecesPrestado;
+            if(esLibroDeTexto== true){
+                return "Título: " + titulo +  "/Autor: " + autor + "/Paginas: " + numPaginas + "/Numero de referencia: ZZZ /Veces prestado: "+ vecesPrestado + "/Es libro de texto: Si";
+            }
+            else{
+                return "Título: " + titulo +  "/Autor: " + autor + "/Paginas: " + numPaginas + "/Numero de referencia: ZZZ /Veces prestado: "+ vecesPrestado + "/Es libro de texto: No";
+            }
         }
     }
 
@@ -79,10 +97,20 @@ public class Libro {
     public void imprimirDetalles()
     {
         if (numeroReferencia.length() != 0){
-            System.out.println ("Título: " + titulo +  "/Autor: " + autor + "/Paginas: " + numPaginas + "/Numero de referencia: " + numeroReferencia + "/Veces prestado: "+ vecesPrestado);
+            if(esLibroDeTexto== true){
+                System.out.println("Título: " + titulo +  "/Autor: " + autor + "/Paginas: " + numPaginas + "/Numero de referencia: " + numeroReferencia + "/Veces prestado: "+ vecesPrestado + "/Es libro de texto: Si");
+            }
+            else{
+                System.out.println("Título: " + titulo +  "/Autor: " + autor + "/Paginas: " + numPaginas + "/Numero de referencia: " + numeroReferencia + "/Veces prestado: "+ vecesPrestado + "/Es libro de texto: No");
+            }
         }
         else{
-            System.out.println ("Título: " + titulo +  "/Autor: " + autor + "/Paginas: " + numPaginas + "/Numero de referencia: ZZZ"+ "/Veces prestado: "+ vecesPrestado);
+            if(esLibroDeTexto== true){
+                System.out.println("Título: " + titulo +  "/Autor: " + autor + "/Paginas: " + numPaginas + "/Numero de referencia: ZZZ /Veces prestado: "+ vecesPrestado + "/Es libro de texto: Si");
+            }
+            else{
+                System.out.println("Título: " + titulo +  "/Autor: " + autor + "/Paginas: " + numPaginas + "/Numero de referencia: ZZZ /Veces prestado: "+ vecesPrestado + "/Es libro de texto: No");
+            }
         }
     }
 
@@ -95,7 +123,7 @@ public class Libro {
             System.out.println("Numero demasiado pequeño");
         }
     }
-    
+
     public void prestar()
     {
         vecesPrestado = vecesPrestado + 1;
