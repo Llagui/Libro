@@ -15,7 +15,9 @@ public class Libro {
     private String numeroReferencia;
     private int vecesPrestado;
     private boolean esLibroDeTexto;
-
+    private String textoprimero;
+    private String textosegundo;
+    
     /**
      * Fija el autor y el titulo del libro a los dados como parametro
      */
@@ -27,6 +29,9 @@ public class Libro {
         numeroReferencia = "";
         vecesPrestado = 0;
         esLibroDeTexto = libroTexto;
+        
+        textoprimero = "Título: " + titulo +  " /Autor: " + autor + " /Paginas: " + numPaginas + "/ Numero de referencia: ";
+        textosegundo = " /Veces prestado: "+ vecesPrestado + " /Es libro de texto:";
     }
 
     public String getAutor()
@@ -58,18 +63,18 @@ public class Libro {
     {
         if (numeroReferencia.length() != 0){
             if(esLibroDeTexto== true){
-                return "Título: " + titulo +  "/Autor: " + autor + "/Paginas: " + numPaginas + "/Numero de referencia: " + numeroReferencia + "/Veces prestado: "+ vecesPrestado + "/Es libro de texto: Si";
+                return textoprimero + numeroReferencia + textosegundo + " Si";
             }
             else{
-                return "Título: " + titulo +  "/Autor: " + autor + "/Paginas: " + numPaginas + "/Numero de referencia: " + numeroReferencia + "/Veces prestado: "+ vecesPrestado + "/Es libro de texto: No";
+                return textoprimero + numeroReferencia + textosegundo + " No";
             }
         }   
         else{
             if(esLibroDeTexto== true){
-                return "Título: " + titulo +  "/Autor: " + autor + "/Paginas: " + numPaginas + "/Numero de referencia: ZZZ /Veces prestado: "+ vecesPrestado + "/Es libro de texto: Si";
+                return textoprimero +" ZZZ "+ textosegundo + " Si";
             }
             else{
-                return "Título: " + titulo +  "/Autor: " + autor + "/Paginas: " + numPaginas + "/Numero de referencia: ZZZ /Veces prestado: "+ vecesPrestado + "/Es libro de texto: No";
+                return textoprimero + "ZZZ "+ textosegundo + " No";
             }
         }
     }
@@ -98,18 +103,18 @@ public class Libro {
     {
         if (numeroReferencia.length() != 0){
             if(esLibroDeTexto== true){
-                System.out.println("Título: " + titulo +  "/Autor: " + autor + "/Paginas: " + numPaginas + "/Numero de referencia: " + numeroReferencia + "/Veces prestado: "+ vecesPrestado + "/Es libro de texto: Si");
+                System.out.println(textoprimero + numeroReferencia + textosegundo +  "Si");
             }
             else{
-                System.out.println("Título: " + titulo +  "/Autor: " + autor + "/Paginas: " + numPaginas + "/Numero de referencia: " + numeroReferencia + "/Veces prestado: "+ vecesPrestado + "/Es libro de texto: No");
+                System.out.println(textoprimero + numeroReferencia + textosegundo + " No");
             }
         }
         else{
             if(esLibroDeTexto== true){
-                System.out.println("Título: " + titulo +  "/Autor: " + autor + "/Paginas: " + numPaginas + "/Numero de referencia: ZZZ /Veces prestado: "+ vecesPrestado + "/Es libro de texto: Si");
+                System.out.println(textoprimero + " ZZZ "+ textosegundo+ " Si");
             }
             else{
-                System.out.println("Título: " + titulo +  "/Autor: " + autor + "/Paginas: " + numPaginas + "/Numero de referencia: ZZZ /Veces prestado: "+ vecesPrestado + "/Es libro de texto: No");
+                System.out.println(textoprimero + "ZZZ " + textosegundo + " No");
             }
         }
     }
